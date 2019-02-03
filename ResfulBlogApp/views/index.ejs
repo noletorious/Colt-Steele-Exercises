@@ -1,0 +1,33 @@
+<% include partials/header %>
+<div class="ui container text">
+    
+<div class="ui items segment divided">
+    <% posts.forEach(function(post){ %>
+    
+      <div class="item">
+        <div class="image">
+          <img class="ui image fluid" src="<%= post.image %>"/>
+        </div>
+        <div class="content">
+          <a class="header" href="/blog/<%= post._id %>"><%= post.title %></a>
+          <div class="meta">
+            <div class="ui label">
+              <i class="calendar alternate outline icon small"></i> <%= post.created.toDateString() %>
+            </div>
+          </div>
+          <!--<div class="description">-->
+          <!--  <p><%= post.created %></p>-->
+          <!--</div>-->
+          <div class="extra">
+            <%= post.body.substring(0,50) %>... 
+            <div class="ui float right">
+               <a href="/blog/<%= post._id %>">Read more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% }); %>
+</div>
+    
+</div>
+<% include partials/footer %>

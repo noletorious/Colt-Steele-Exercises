@@ -1,0 +1,33 @@
+<% include partials/header %>
+<div class="ui container text segment">
+        <div class="ui label">
+          <i class="calendar alternate outline icon small"></i> <%= post.created.toDateString() %>
+        </div>
+        <h2 class="ui huge header"><%= post.title %></h2>
+        <div class="ui top attached">
+            <div class="item">
+                <div class ="ui centered rounded image">
+                    <img class="ui image fluid" src="<%= post.image %>"/>
+                </div>
+            </div>
+        </div>
+        
+        <span></span>
+        <!--minus character evaluates any code in string-->
+        <p><%- post.body %></p>
+</div>
+<div class="ui container text">
+    <div class="ui button basic float right">
+        <a href="/blog/<%= post._id %>/edit">
+            <i class="edit icon small"></i> Edit post
+        </a>
+    </div>
+    <div class="delete-form">
+        <form action="/blog/<%= post._id %>?_method=DELETE" method="POST">
+            <input type="submit" value="Delete" class="ui button basic float right">
+        </form>
+    </div>
+</div>
+
+    
+<% include partials/footer %>
